@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -9,7 +10,8 @@ class ItemController extends Controller
     // 商品一覧の表示
     public function index()
     {
-        echo "<h1>ここに処理を追加します</h1>";
+        $items = Item::all();
+        echo "<h1>商品名: ", $items[0]->name, "</h1>";
     }
 
     // 商品登録ページ表示用
