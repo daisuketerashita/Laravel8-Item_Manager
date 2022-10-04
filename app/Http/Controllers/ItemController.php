@@ -11,7 +11,8 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::all();
-        echo "<h1>商品名: ", $items[0]->name, "</h1>";
+        
+        return view('item.index',['items' => $items]);
     }
 
     // 商品登録ページ表示用
