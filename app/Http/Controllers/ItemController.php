@@ -24,7 +24,11 @@ class ItemController extends Controller
     // 商品登録の実行
     public function store(Request $request)
     {
-        // 処理を追加
+        $item = new Item();
+        $item->fill($request->all());
+        $item->save();
+
+        return redirect("/item");
     }
 
     // 商品編集ページ
