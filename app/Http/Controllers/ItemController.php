@@ -53,6 +53,10 @@ class ItemController extends Controller
     // 商品削除の実行
     public function delete($id)
     {
-        // 処理を追加
+        $item = Item::find($id);
+        
+        $item->delete();
+
+        return redirect("/item");
     }
 }
