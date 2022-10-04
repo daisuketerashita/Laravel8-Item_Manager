@@ -18,7 +18,7 @@ class ItemController extends Controller
     // 商品登録ページ表示用
     public function create()
     {
-        // 処理を追加
+        return view('item.create');
     }
 
     // 商品登録の実行
