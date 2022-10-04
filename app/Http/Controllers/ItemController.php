@@ -34,13 +34,20 @@ class ItemController extends Controller
     // 商品編集ページ
     public function edit($id)
     {
-        // 処理を追加
+        $item = Item::find($id);
+
+        return view('item.edit',['item' => $item]);
     }
 
     // 商品編集の実行
     public function update($id, Request $request)
     {
-        // 処理を追加
+        $item = Item::find($id);
+
+        $item->fill($request->all());
+        $item->save();
+
+        return redirect("/item");
     }
 
     // 商品削除の実行
