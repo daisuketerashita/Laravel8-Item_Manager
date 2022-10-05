@@ -23,6 +23,18 @@
             <input type="number" name="price" placeholder="価格を入力してください">
         </div>
         <div>
+            <label>カテゴリ名</label>
+        </div>
+        <div>
+            <select name="category_id">
+                <?php foreach($categories as $category): ?>
+                    <option value="{{ $category->id }}">
+                        {{ $category->name }}
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div>
             <!-- POST通信なのでcsrf_field()を用意 -->
             {{ csrf_field() }}
             <input type="submit" name="send" value="登録する">

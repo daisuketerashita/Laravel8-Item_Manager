@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -19,7 +20,9 @@ class ItemController extends Controller
     // 商品登録ページ表示用
     public function create()
     {
-        return view('item.create');
+        $categories = Category::all();
+
+        return view('item.create', ["categories" => $categories]);
     }
 
     // 商品登録の実行

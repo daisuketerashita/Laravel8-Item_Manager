@@ -17,6 +17,7 @@
                     <th>id</th>
                     <th>商品名</th>
                     <th>価格</th>
+                    <th>カテゴリー</th>
                     <th>
                         <!-- 編集ボタン -->
                     </th>
@@ -31,6 +32,7 @@
                         <td><?php echo $item->id; ?></td>
                         <td><?php echo $item->name; ?></td>
                         <td><?php echo number_format($item->price); ?></td>
+                        <td><?php echo $item->category->name; ?></td>
                         <td>
                             <form action="/item/edit/<?php echo $item->id; ?>" method="get">
                                 <input type="submit" value="編集">
