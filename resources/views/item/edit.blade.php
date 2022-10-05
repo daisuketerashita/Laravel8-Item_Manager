@@ -20,6 +20,24 @@
             <input type="number" name="price" value="{{ $item->price }}" placeholder="価格を入力">
         </div>
         <div>
+            <label>カテゴリ名</label>
+        </div>
+        <div>
+            <select name="category_id">
+                <?php foreach($categories as $category): ?>
+                    <?php if($category->id === $item->category_id): ?>
+                        <option value="{{ $category->id }}" selected>
+                            {{ $category->name }}
+                        </option>
+                    <?php else: ?>
+                        <option value="{{ $category->id }}">
+                            {{ $category->name }}
+                        </option>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div>
             {{ csrf_field() }}
             <input type="submit" name="send" value="編集する">
         </div>

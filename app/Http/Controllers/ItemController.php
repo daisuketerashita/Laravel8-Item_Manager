@@ -39,8 +39,12 @@ class ItemController extends Controller
     public function edit($id)
     {
         $item = Item::find($id);
+        $categories = Category::all();
 
-        return view('item.edit',['item' => $item]);
+        return view('item.edit',[
+            'item' => $item,
+            'categories' => $categories
+        ]);
     }
 
     // 商品編集の実行
