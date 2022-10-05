@@ -10,7 +10,8 @@ class ItemController extends Controller
     // 商品一覧の表示
     public function index()
     {
-        $items = Item::all();
+        $query = Item::query()->whereNull("deleted_at");
+        $items = $query->get();
         
         return view('item.index',['items' => $items]);
     }
@@ -54,8 +55,10 @@ class ItemController extends Controller
     public function delete($id)
     {
         $item = Item::find($id);
-        
-        $item->delete();
+
+        $date = date("Y-m-d H:i:s");
+        $item->deleted_at = $date;
+        $item->save();
 
         return redirect("/item");
     }
