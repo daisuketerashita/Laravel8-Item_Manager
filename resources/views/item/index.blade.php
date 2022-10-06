@@ -20,6 +20,9 @@
                     <th>在庫数</th>
                     <th>カテゴリー</th>
                     <th>
+                        <!-- 入出荷ボタン -->
+                    </th>
+                    <th>
                         <!-- 編集ボタン -->
                     </th>
                     <th>
@@ -35,6 +38,14 @@
                         <td>{{ number_format($item->price) }}</td>
                         <td>{{ $item->stock }}</td>
                         <td>{{ $item->category->name }}</td>
+                        <td>
+                            <form action="/item/stock/{{ $item->id }}" method="post">
+                                {{ csrf_field() }}
+                                <input type="number" name="stock">
+                                <input type="submit" value="入荷" name="in">
+                                <input type="submit" value="出荷" name="out">
+                            </form>
+                        </td>
                         <td>
                             <form action="/item/edit/<?php echo $item->id; ?>" method="get">
                                 <input type="submit" value="編集">

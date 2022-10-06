@@ -69,4 +69,33 @@ class ItemController extends Controller
 
         return redirect("/item");
     }
+
+    // 在庫管理の処理
+    public function stock($id,Request $request)
+    {
+        $item = Item::find($id);
+
+        // $requestから入力された在庫数を取得
+        $stock = $request->input('stock');
+        // 入力が未入力 or 入力値が0以下の場合
+        if (empty($stock) || $stock <= 0){
+            // 処理を行わずにリダイレクト
+            return redirect("/item");
+        }
+
+        // 入荷の場合
+        if ($request->has("in")){
+            $item->stock += $stock;
+        // 出荷の場合    
+        }elseif($request->has("out")){
+            if ($item->stock >= $stock) {
+                // 減算
+                $item->stock -= $stock;
+            }
+        }
+
+        $item->save();
+
+        return redirect("/item");
+    }
 }

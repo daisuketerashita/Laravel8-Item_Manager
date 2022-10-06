@@ -35,3 +35,6 @@ Route::post("item/edit/{id}",[ItemController::class,'update']);
 
 // 商品削除の実行
 Route::post("item/delete/{id}",[ItemController::class,'delete']);
+
+// 在庫管理の実行
+Route::post("item/stock/{id}",[ItemController::class,'stock']);
