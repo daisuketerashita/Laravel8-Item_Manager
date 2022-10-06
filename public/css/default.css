@@ -1,0 +1,53 @@
+/* 共通箇所で利用する色を定義する */
+:root {
+    --header-color: #DADADA;
+    --menu-color: #204969;
+}
+
+/* 全体の高さとmarginを初期化する */
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+/* ヘッダーを調整する */
+.header {
+    background-color: var(--header-color);
+    min-height: 10%;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    height: 90%;
+}
+
+.side-menu {
+    width: 20%;
+}
+
+.contents {
+    width: 80%;
+}
+
+.menu-list {
+    background-color: var(--menu-color);
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-list a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.menu-list a li {
+    margin: 20px 0;
+    padding: 0 10px;
+}
