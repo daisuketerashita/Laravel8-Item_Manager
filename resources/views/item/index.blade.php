@@ -17,6 +17,7 @@
                     <th>id</th>
                     <th>商品名</th>
                     <th>価格</th>
+                    <th>在庫数</th>
                     <th>カテゴリー</th>
                     <th>
                         <!-- 編集ボタン -->
@@ -29,10 +30,11 @@
             <tbody>
                 <?php foreach ($items as $item) : ?>
                     <tr>
-                        <td><?php echo $item->id; ?></td>
-                        <td><?php echo $item->name; ?></td>
-                        <td><?php echo number_format($item->price); ?></td>
-                        <td><?php echo $item->category->name; ?></td>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ number_format($item->price) }}</td>
+                        <td>{{ $item->stock }}</td>
+                        <td>{{ $item->category->name }}</td>
                         <td>
                             <form action="/item/edit/<?php echo $item->id; ?>" method="get">
                                 <input type="submit" value="編集">
